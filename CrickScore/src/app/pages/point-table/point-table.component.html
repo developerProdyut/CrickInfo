@@ -1,0 +1,37 @@
+
+<div class="overflow-x-auto">
+    <h1 class="text-3xl font-extrabold text-slate-600 px-2 py-4">Point Table</h1>
+    <table class="w-full mt-4 shadow-black table-auto text-center">
+        <thead>
+            <tr class="text-left bg-gray-200">
+                @for (heading of tableHeading; track $index) {
+                    <th class="px-4 py-2 text-center border-b">{{heading}}</th>
+
+                }
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example data for 10 rows -->
+            @for (team of pointTable; track $index) {
+                <tr class="hover:bg-gray-100 transition-colors"
+                    [ngClass]="{
+                        'bg-green-300':$index<=4,
+                        'bg-red-300':$index>=5
+                    }">
+                    @if ($index>0) {
+                        @for (data of team; track $index) {
+                            <td class="border px-4 py-2">{{data}}</td>
+    
+                        }
+                    }
+
+                </tr>
+            }
+                
+            <!-- Add more rows as needed -->
+            <!-- Repeat the above row structure -->
+        </tbody>
+    </table>
+</div>
+<!--<p>{{pointTable|json}}</p>-->
